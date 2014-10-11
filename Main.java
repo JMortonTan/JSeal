@@ -7,6 +7,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+        load();
     }
      
     //Sample code for loading image into BufferedImage object.
@@ -17,6 +18,8 @@ public class Main
             img = ImageIO.read(new File("usa.jpg"));
         } catch (IOException e){
         }
+        
+        save(img);
     }
     
     //Sample code for recieving dimension, should break into two when implemented.
