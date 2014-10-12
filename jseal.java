@@ -21,29 +21,27 @@ public class jseal
 			System.out.print("Code or decode: ");
 			input = keyboard.nextLine();
             
-            if(input.equals("code"))
-            {
-                BufferedImage img = ImageIO.read(new File("usa.jpg"));
-                ImageIO.write(img, "jpg", new File("SameFlag.jpg"));
-                save(code(img));
-                System.out.println("Encryption complete.");
-            }
+            		if(input.equals("code"))
+            		{
+                		BufferedImage img = ImageIO.read(new File("usa.jpg"));
+                		ImageIO.write(img, "jpg", new File("SameFlag.jpg"));
+                		save(code(img));
+                		System.out.println("Encryption complete.");
+            		}
             
-            else if(input.equals("decode"))
-            {
-                System.out.print("Please enter the name of the file you want to decrypt: ");
-                String fileName = keyboard.nextLine();
+        	 	else if(input.equals("decode"))
+            		{
+                		System.out.print("Please enter the name of the file you want to decrypt: ");
+                		String fileName = keyboard.nextLine();
                 
-                BufferedImage img = ImageIO.read(new File(fileName));
-                System.out.println(hexToString(decode(img)));
-            }
+                		BufferedImage img = ImageIO.read(new File(fileName));
+                		System.out.println(hexToString(decode(img)));
+            		}
             
-            else
-                System.out.println("Your input was invalid");
-                                   
-                            
+            		else
+                		System.out.println("Your input was invalid");
 		}
-		catch(IOException e)
+		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
 		}
