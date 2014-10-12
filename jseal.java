@@ -15,10 +15,10 @@ public class jseal
 			Scanner keyboard = new Scanner(System.in);
 			String input;
 
-			System.out.print("Code or decode: ");
+			System.out.print("Encode or Decode?: ");
 			input = keyboard.nextLine();
             
-            if(input.equals("code"))
+            if(input.equals("encode"))
             {
                 
                 BufferedImage img = ImageIO.read(new File("usa.jpg"));

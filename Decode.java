@@ -23,9 +23,7 @@ public class Decode
 				String hexColor = Integer.toHexString(img.getRGB(j, i));
                 
                 hexArray[hexCounter] = hexColor;
-                
-                System.out.println(hexColor);
-                
+                                
                 if(hexCounter < (hexArray.length - 1))
                     hexCounter++;
             }
@@ -56,7 +54,7 @@ public class Decode
         }
         
         for(int counter = 0; counter < secret.length; counter++)
-            secretMsg += secret[counter];
+            secretMsg += Character.toString(secret[counter]);
                              
         return(secretMsg);
 	}
