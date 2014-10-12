@@ -1,14 +1,9 @@
-/*
-	John Joseph Losito
-	RU Hack
-	Steno project
-*/
-
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.Color;
 
 public class Steno
 {
@@ -74,7 +69,7 @@ public class Steno
         System.out.print("Enter a message: ");
 		input = keyboard.nextLine();
         
-        String[] hexArray = chartoHex(input);
+        String[] hexArray = charToHex(input);
         int hexCounter = 0;
         
         hexArray = colorKey(hexArray);
@@ -83,7 +78,8 @@ public class Steno
         {
 			for(int j = 0; j < img.getWidth(); j+=widthSize)
             {
-                img.setRGB(j, i, hexStringtoColor(hexArray[hexCounter]));
+                img.setRGB(j, i, hexStringToRGBInt(hexArray[hexCounter]));
+                hexCounter++;
             }
         }
         return(img);
@@ -94,15 +90,15 @@ public class Steno
 		Scanner keyboard = new Scanner(System.in);
 		String input;
         
-        String[] hexArray = String[calculateSize(img)];
+        String[] hexArray = new String[calculateSize(img)];
         int hexCounter = 0;
 
 		for(int i = 0; i < img.getHeight(); i+=heightSize)
         {
 			for(int j = 0; j < img.getWidth(); j+=widthSize)
             {
-				String hexColor = Integer.toHexString(img.readRGB());
-                hexColor = hexColor.subString(2, hexColor.length());
+				String hexColor = Integer.toHexString(img.getRGB(j, i));
+                hexColor = hexColor.substring(2, hexColor.length());
                     
                 hexArray[hexCounter] = hexColor;
                 hexCounter++;
@@ -112,7 +108,6 @@ public class Steno
         return(hexArray);
 	}
 
-
 	/*
 		The charToHex method
 		param message The cryptic message
@@ -120,10 +115,10 @@ public class Steno
 	*/
 	public static String[] charToHex(String message)
 	{
-		String[] hexArray = new String[message.length];
+		String[] hexArray = new String[message.length()];
 
-		for(int i = 0; i < message.length; i++)
-			hex[i] = String.format("%04x", (int) message.charAt(i));
+		for(int i = 0; i < message.length(); i++)
+			hexArray[i] = String.format("%04x", (int) message.charAt(i));
 
 		return hexArray;
 	}
@@ -135,7 +130,7 @@ public class Steno
                              
         for(int counter = 0; counter < hexArray.length; counter++)
         {
-            secret[counter] += (char)hexArray[counter].subString(2, hexArray[counter].length());
+            secret[counter] += hexArray[counter].substring(2, hexArray.length).charAt(0);
         }
         
         for(int counter = 0; counter < secret.length; counter++)
@@ -144,34 +139,26 @@ public class Steno
         return(secretMsg);
 	}
 
-	public static Color hexStringToColor(String hex)
+	public static int hexStringToRGBInt(String hex)
     {
-	   hex = hex.Replace("#", "").ToLowerInvariant();
-
-	
-	   if (hex.Length == 6)
-	   {
-		  hex = "ff" + hex;
-	   }
-	   else if (hex.Length != 8)
-	   {
-		  throw new Exception("Error with hex String");
-	   }
-
-	   int a, r, g, b;
-	   a = Convert.ToInt32(hex.Substring(0, 2), 16);
-	   r = Convert.ToInt32(hex.Substring(2, 2), 16);
-	   g = Convert.ToInt32(hex.Substring(4, 2), 16);
-	   b = Convert.ToInt32(hex.Substring(6, 2), 16);
-
-	   return Color.FromArgb(a, r, g, b);
+        Color hexColor = new Color(
+            Integer.valueOf(hex.substring( 1, 3 ), 16 ),
+            Integer.valueOf(hex.substring( 3, 5 ), 16 ),
+            Integer.valueOf(hex.substring( 5, 7 ), 16 ) );
+        
+        int r = hexColor.getRed();
+        int g = hexColor.getGreen();
+        int b = hexColor.getBlue();
+        
+        int rgb = ((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
+        return(rgb);
     }
     
-    public static String colorKey(String[] charHex)
+    public static String[] colorKey(String[] charHex)
     {
-        String[] colorHex = String[charHex.length];
+        String[] colorHex = new String[charHex.length];
         
-        for(int counter = 0; counter < charHex; counter++)
+        for(int counter = 0; counter < charHex.length; counter++)
         {
             colorHex[counter] = "00" + charHex[counter];
         }
