@@ -10,6 +10,7 @@ public class jseal
 	static int heightSize = 6;
 	static int widthSize = 6;
     
+    //Main method.
 	public static void main(String[] args)
 	{
 		try
@@ -134,7 +135,7 @@ public class jseal
                              
         for(int counter = 0; counter < hexArray.length; counter++)
         {
-            secret[counter] = hexArray[counter].substring(2, hexArray.length - 1).charAt(0);
+            secret[counter] = hexArray[counter].charAt(0);
         }
         
         for(int counter = 0; counter < secret.length; counter++)
@@ -173,11 +174,6 @@ public class jseal
         }
         
         return(colorHex);
-    }
-                              
-    public static void open(String fileLocation)
-    {
-        
     }
                               
     //Save file function
