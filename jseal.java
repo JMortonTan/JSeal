@@ -74,9 +74,9 @@ public class jseal
         
         hexArray = colorKey(hexArray);
         
-		for(int i = 0; i < img.getHeight(); i+=heightSize)
+		for(int i = 0; i < img.getHeight(); i +=heightSize)
         {
-			for(int j = 0; j < img.getWidth(); j+=widthSize)
+			for(int j = 0; j < img.getWidth(); j +=widthSize)
             {
                 img.setRGB(j, i, hexStringToRGBInt(hexArray[hexCounter]));
                 hexCounter++;
@@ -118,7 +118,7 @@ public class jseal
 		String[] hexArray = new String[message.length()];
 
 		for(int i = 0; i < message.length(); i++)
-			hexArray[i] = String.format("%04x", (int) message.charAt(i));
+			hexArray[i] = "00" + String.format("%04x", (int) message.charAt(i));
 
 		return hexArray;
 	}
@@ -141,17 +141,22 @@ public class jseal
 
 	public static int hexStringToRGBInt(String hex)
     {
+        //Test code.
+        System.out.println(hex);
+        
         Color hexColor = new Color(
             Integer.valueOf(hex.substring( 1, 3 ), 16 ),
             Integer.valueOf(hex.substring( 3, 5 ), 16 ),
-            Integer.valueOf(hex.substring( 5, 7 ), 16 ) );
+            Integer.valueOf(hex.substring( 5, 7 ), 16 ));
         
         int r = hexColor.getRed();
         int g = hexColor.getGreen();
         int b = hexColor.getBlue();
         
-        int rgb = ((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
-        return(rgb);
+        return 0xFF000000 | r | g | b;
+        
+        //int rgb = ((r&0x0ff)<<16)|((g&0x0ff)<<8)|(b&0x0ff);
+        //return(rgb);
     }
     
     public static String[] colorKey(String[] charHex)
