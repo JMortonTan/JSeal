@@ -5,7 +5,7 @@
 */
 
 import java.awt.image.BufferedImage;
-import java.io.Scanner;
+import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -61,7 +61,7 @@ public class Steno
 	*/
 	public static int calculateSize(BufferedImage img)
 	{
-		int size = (img.getWidth() * img.Height()) / (heightSize * widthSize);
+		int size = (img.getWidth() * img.getHeight()) / (heightSize * widthSize);
         
 		return size;
 	}
@@ -130,7 +130,7 @@ public class Steno
 
 	public static String hexToString(String[] hexArray)
 	{
-        char[] secret = char[hexArray.length];
+        char[] secret = new char[hexArray.length];
         String secretMsg = "";
                              
         for(int counter = 0; counter < hexArray.length; counter++)
@@ -155,9 +155,7 @@ public class Steno
 	   }
 	   else if (hex.Length != 8)
 	   {
-		  throw new Exception(hex + " 
-            is not a valid 6 or 8-place 
-			hexadecimal color code.");
+		  throw new Exception("Error with hex String");
 	   }
 
 	   int a, r, g, b;
