@@ -24,7 +24,6 @@ public class jseal
             if(input.equals("code"))
             {
                 BufferedImage img = ImageIO.read(new File("usa.jpg"));
-                ImageIO.write(img, "jpg", new File("SameFlag.jpg"));
                 save(code(img));
                 System.out.println("Encryption complete.");
             }
@@ -78,8 +77,13 @@ public class jseal
         {
 			for(int j = 0; j < img.getWidth(); j +=widthSize)
             {
+                //Test Code.
+                System.out.println(img.getHeight());
+                System.out.println(i);
+                
                 img.setRGB(j, i, hexStringToRGBInt(hexArray[hexCounter]));
-                hexCounter++;
+                if(hexCounter < (hexArray.length - 1))
+                    hexCounter++;
             }
         }
         return(img);
@@ -101,7 +105,8 @@ public class jseal
                 hexColor = hexColor.substring(2, hexColor.length());
                     
                 hexArray[hexCounter] = hexColor;
-                hexCounter++;
+                if(hexCounter < (hexArray.length - 1))
+                    hexCounter++;
             }
         }
         
@@ -130,7 +135,7 @@ public class jseal
                              
         for(int counter = 0; counter < hexArray.length; counter++)
         {
-            secret[counter] += hexArray[counter].substring(2, hexArray.length).charAt(0);
+            secret[counter] = hexArray[counter].substring(2, hexArray.length - 1).charAt(0);
         }
         
         for(int counter = 0; counter < secret.length; counter++)
