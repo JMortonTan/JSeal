@@ -31,8 +31,8 @@ public class jseal
                 System.out.print("Please enter the name of the file you want to decrypt: ");
                 String fileName = keyboard.nextLine();
                 
-                BufferedImage img = ImageIO.read(new File(fileName));
-                System.out.println(Decode.hexToString(Decode.decode(img)));
+                BufferedImage dimg = ImageIO.read(new File(fileName));
+                System.out.println(Decode.hexToString(Decode.decode(dimg)));
             }
             
             else

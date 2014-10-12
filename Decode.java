@@ -15,20 +15,18 @@ public class Decode
 	{
         String[] hexArray = new String[calculateSize(img)];
         int hexCounter = 0;
-
+        
 		for(int i = 0; i < img.getHeight(); i += heightSize)
         {
 			for(int j = 0; j < img.getWidth(); j += widthSize)
-            {
+            {                
 				String hexColor = Integer.toHexString(img.getRGB(j, i));
-                
                 hexArray[hexCounter] = hexColor;
-                                
-                if(hexCounter < (hexArray.length - 1))
-                    hexCounter++;
+                                            
+                hexCounter++;
             }
         }
-        
+                
         return(hexArray);
 	}
     
@@ -46,11 +44,14 @@ public class Decode
         char[] secret = new char[hexArray.length];
         String tempString;
         String secretMsg = "";
-                             
+        
+        System.out.println(secret.length);
+                                     
         for(int counter = 0; counter < hexArray.length; counter++)
         {
             tempString = hexArray[counter];
-            secret[counter] = (char)Integer.parseInt(hexArray[counter].substring(6,8));
+            secret[counter] = (char)Integer.parseInt(tempString.substring(2,tempString.length()));
+            System.out.print(secret[counter]);
         }
         
         for(int counter = 0; counter < secret.length; counter++)
