@@ -21,9 +21,9 @@ public class jseal
             if(input.equals("encode"))
             {
                 System.out.print("Please enter the path to the image file you wish to use: ");
-                String fileName - keyboard.nextLine();
+                String fileName = keyboard.nextLine();
                 
-                BufferedImage img = ImageIO.read(new File("fileName"));
+                BufferedImage img = ImageIO.read(new File(fileName));
                 Encode.save(Encode.code(img));
                 System.out.println("Encryption complete.");
             }
