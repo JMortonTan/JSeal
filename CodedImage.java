@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
+
 public class CodedImage extends BufferedImage
 {
     private boolean coded;              //Flag to identify if CodedImage object is coded or not coded.
@@ -24,19 +25,18 @@ public class CodedImage extends BufferedImage
     }
     
     //Open Image Method.
-    public BufferedImage setBufferedImage()
+    public void setBufferedImage()
     {
         this.currentImg = new ImageIO.read(new File(this.filePath));
-        return(currentImg);
     }
     
     //Save file function.
-    public static void save(BufferedImage img)
+    public static void save(String filePath)
     {
         try 
         {
-            File outFile = new File("save.jpg");
-            ImageIO.write(img, "jpg", outFile);
+            File outFile = new File(filePath);
+            ImageIO.write(this.currentImg, "jpg", outFile);
         } catch (IOException e){}
     }
     
@@ -70,17 +70,32 @@ public class CodedImage extends BufferedImage
         return(this.secretMsg);
     }
     
+    //Ascii to Hex
+    public String asciiToHex(char ascii)
+    {
+        String hex;
+        
+        //Ascii to hex
+        
+        return(hex);
+    }
+    
     //Encoding protocol.
     public void encode()
     {
         char[] msgArray = secretMsg.toCharArray();     //Array of message Characters.
-        
-        //Create blank char array of size getSize(), populate it to null character.
+        char[] encodeRdy = new char[getSize()];        //Create blank char array of size getSize(), populate it to null character.
+        String[] hexArray = new String[getSize()];
 
         //Copy chars from msgArray to new char array leaving leftover spaces as null characaters.
+        for(int charCounter = 0; charCounter < msgArray.length; charCounter++)
+            encodeRdy[charCounter] = msgArray[charCounter];
         
-        //New encodRdy char array to String hex array #AARRGGBB?/#RRGGBB?
-        //!!!!!!!!!!!!!!!!!!!!!!!
+        //New encodeRdy char array to String hex array #AARRGGBB?/#RRGGBB?
+        for(int rdyCounter = 0; rdyCounter < hexArray.length; rdyCounter++)
+            hexArray[rdyCounter] = asciiToHex(encodeRdy[rdyCounter]);
+        
+        //4x ascii in one hex code?
         
         for(int yScroll = 0; yScroll < img.getHeight(); yScroll += heightMod)
         {
@@ -96,13 +111,30 @@ public class CodedImage extends BufferedImage
     //Decoding protocol.
     public void decode()
     {
-        //Declare & instantiate string hex array to size getSize()
         //Declare & instantiate int array to size getSize()
+        int[] rgbIntArray = new int[getSize()];
+        //Declare & instantiate string hex array to size getSize()
+        String[] hexArray = new String[getSize()];
         //Declare & instantiate char array to size getSize()
+        char[] charArray = new char[getSize()];
+        
+        int intCounter = 0;
         
         //Iterator through and populate ARGB int array.
+        do
+        {
+            for(int yScroll = 0; yScroll < img.getHeight(); yScroll += heightMod)
+            {
+                for(int xScroll = 0; xScroll < img.getWidth(); xScroll += widthMod)
+                {   
+                    rgbIntArray[intCounter] = (img.getRGB(xScroll, yScroll));
+                    intCounter++;
+                }
+            }
+        }while(intCounter < getSize())
         
         //ARGB int array convert to HEX array.
+        
         
         //Hex array to char array.
         //Char array to String.

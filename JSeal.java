@@ -24,7 +24,7 @@ public class JSeal
             do
             {
                 //Ask user for secret message.
-                System.out.println("Your secret message can only have" + workImage.getSize + " characters.");
+                System.out.println("Your secret message can only have" + workImage.getSize() + " characters.");
                 System.out.println("What is your secret message? ");
             
                 //Need to confirm user input is within bounds.
@@ -32,14 +32,15 @@ public class JSeal
             } while(!check(holdString))
             
             //Set secret.
-            workImage.setSecret(keyboard.nextLine, workImage.getSize);
+            workImage.setSecret(keyboard.nextLine(), workImage.getSize());
               
             //Encode.
             workImage.encode();
             System.out.println("Encoding complete.");
             
             //Save.
-            workImage.save();
+            System.out.println("Please name the encoded file: ");
+            workImage.save(keyboard.nextLine());
         }
         
         else if(command.equals("decode"))
