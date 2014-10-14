@@ -5,11 +5,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-public class jseal
+public class JSeal
 {    
     //Main method.
 	public static void main(String[] args)
 	{
+	    String command = args[0];
+
+
+
+	    CodedImage workImage = new CodedImage(
+
+
 		try
 		{
 			Scanner keyboard = new Scanner(System.in);
