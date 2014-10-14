@@ -16,6 +16,7 @@ We are in process of rewriting the entire code.
 - Finish CodedImage methods.
 - JFrame GUI?
 - Android GUI?
+- Open source licensing.
 
 ###Credits
 
