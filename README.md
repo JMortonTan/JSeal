@@ -5,9 +5,11 @@ JSeal
 
 JSeal is a Steganography application that allows a user to encode data into an existing .JPEG file.
 
-As of 10/14/2014, the source code contained in the folder 'Old' of this repository is the only running demo that has bugs in its decoding methods.
+As of 10/14/2014, the source code contained in the folder 'Old' of this repository is the only running demo that has major bugs in its decoding methods.
 
 We are in process of rewriting the entire code.
+
+**The source code in the current directory will not compile until this notice is taken down.**
 
 ###Credits
 
