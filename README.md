@@ -11,6 +11,12 @@ We are in process of rewriting the entire code.
 
 **The source code in the current directory will not compile until this notice is taken down.**
 
+###To Do List
+- Create UML diagram of program.
+- Finish CodedImage methods.
+- JFrame GUI?
+- Android GUI?
+
 ###Credits
 
 This project was created in Java by:
