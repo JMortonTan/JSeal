@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-public class Decode extends BufferedImage
+public class Decode
 {
     static int heightSize = 6;      //Decrypting y skip variable.
 	static int widthSize = 6;       //Decypting x skip variable.
