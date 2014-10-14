@@ -7,23 +7,57 @@ import java.awt.Color;
 
 public class CodedImage extends BufferedImage
 {
-    private int heightMod = 6;      //Indicates jump distance on x axis.
-    private int widthMod = 6;       //Indicates jump distance on y axis.
+    private boolean coded;              //Flag to identify if CodedImage object is coded or not coded.
+    private int heightMod = 6;          //Indicates jump distance on x axis.
+    private int widthMod = 6;           //Indicates jump distance on y axis.
+    private int size;                   //Stores number amount of hidden material.
+    private String filePath;	        //String containing user indicated file path.
+    private String secretMsg;	        //String containing user indicated secret message.
+    private BufferedImage currentImg;   //Reference to current working image.
 
-    private String filePath;	    //String containing user indicated file path.
-
-    private String secretMsg;	    //String containing user indicated secret message.
-
-    //Default Constructor
-    public CodedImage()
+    //Overloaded Constructor.
+    public CodedImage(String pathName, boolean coded)
     {
+        this.setPath(pathName);
+        this.setFlag(coded);
+        this.setBufferedImage();
+        this.setSize();
     }
-
-    //Overloaded Constructor
-    public CodedImage()
+    
+    //Open Image Method.
+    public BufferedImage setBufferedImage()
     {
-
+        currentImg = new ImageIO.read(new File(this.filePath));
+        return(currentImg);
     }
+    
+    //Save file function.
+    public static void save(BufferedImage img)
+    {
+        try 
+        {
+            File outFile = new File("save.jpg");
+            ImageIO.write(img, "jpg", outFile);
+        } catch (IOException e){}
+    }
+    
+    //Set boolean flag.
+    public void setFlag(boolean Indicater)
+    {
+        this.coded = userIndicate;
+    }
+    
+    //Sets user instructed path name.
+    public void setPath(String path)
+    {
+        this.filePath = path;
+    }
+    
+    //This method returns int size which is the total amount of characters that can be stored.
+    public static int setSize()
+	{
+		this.size = (this.getWidth() * this.getHeight()) / (heightMod * widthMod);
+	}
 
     //Encoding Protocol.
     public static BufferedImage code(BufferedImage img)
@@ -71,14 +105,6 @@ public class CodedImage extends BufferedImage
                 
         return(hexArray);
 	}
-	
-	//This method returns int size which is the total amount of characters that can be stored.
-    public static int calculateSize(BufferedImage img)
-	{
-		int size = (img.getWidth() * img.getHeight()) / (heightMod * widthMod);
-        
-		return size;
-	}
     
     //This is the initial modifier for preparing the String[] of hexcodes.
     public static String[] charToHex(String message)
@@ -119,15 +145,6 @@ public class CodedImage extends BufferedImage
         int b = hexColor.getBlue();
         
         return 0xFF000000 | r | g | b;
-    }
-    
-    //Save file function
-    public static void save(BufferedImage img)
-    {
-    try {
-        File outFile = new File("save.jpg");
-        ImageIO.write(img, "jpg", outFile);
-    } catch (IOException e){}
     }
     
     //This method converts a String array holding all the hex values back into characters and finally a String.

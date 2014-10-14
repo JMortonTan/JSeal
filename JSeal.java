@@ -14,9 +14,10 @@ public class JSeal
 
 
 
-	    CodedImage workImage = new CodedImage(
+	    CodedImage workImage = new CodedImage();
 
-
+    
+/*  LEGACY CODE
 		try
 		{
 			Scanner keyboard = new Scanner(System.in);
@@ -53,4 +54,5 @@ public class JSeal
 			System.out.println(e.getMessage());
 		}
 	}
+*/
 }
