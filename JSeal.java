@@ -1,9 +1,5 @@
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.awt.Color;
 
 public class JSeal
 {
@@ -40,6 +36,7 @@ public class JSeal
               
             //Encode.
             workImage.encode();
+            System.out.println("Encoding complete.");
             
             //Save.
             workImage.save();
@@ -53,6 +50,7 @@ public class JSeal
             
             //Decode.
             workImage.decode();
+            System.out.println("Decoding complete.");
             
             //Display secret message.
             System.out.println("Your encoded message was: " + workImage.getSecret());

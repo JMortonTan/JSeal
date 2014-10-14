@@ -1,9 +1,8 @@
+import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.Scanner;
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.awt.Color;
 
 public class CodedImage extends BufferedImage
 {
@@ -27,7 +26,7 @@ public class CodedImage extends BufferedImage
     //Open Image Method.
     public BufferedImage setBufferedImage()
     {
-        currentImg = new ImageIO.read(new File(this.filePath));
+        this.currentImg = new ImageIO.read(new File(this.filePath));
         return(currentImg);
     }
     
@@ -59,17 +58,29 @@ public class CodedImage extends BufferedImage
 		this.size = (this.getWidth() * this.getHeight()) / (heightMod * widthMod);
 	}
     
+    //Method to change secret instance variable.
     public void setSecret(String secret)
     {
         this.secretMsg = secret;
     }
     
-    public static CodedImage encode(CodedImage)
+    //Method to return secret instance variable.
+    public String getSecret()
+    {
+        return(this.secretMsg);
+    }
+    
+    //Encoding protocol.
+    public CodedImage encode(CodedImage)
     {
         
     }
     
-    
+    //Decoding protocol.
+    public void decode()
+    {
+        
+    }
 /* Legacy Code
     //Encoding Protocol.
     public static BufferedImage code(BufferedImage img)
