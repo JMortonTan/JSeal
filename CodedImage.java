@@ -71,26 +71,48 @@ public class CodedImage extends BufferedImage
     }
     
     //Encoding protocol.
-    public CodedImage encode(CodedImage)
+    public void encode()
     {
+        char[] msgArray = secretMsg.toCharArray();     //Array of message Characters.
         
+        //Create blank char array of size getSize(), populate it to null character.
+
+        //Copy chars from msgArray to new char array leaving leftover spaces as null characaters.
+        
+        //New encodRdy char array to String hex array #AARRGGBB?/#RRGGBB?
+        //!!!!!!!!!!!!!!!!!!!!!!!
+        
+        for(int yScroll = 0; yScroll < img.getHeight(); yScroll += heightMod)
+        {
+			for(int xScroll = 0; xScroll < img.getWidth(); xScroll += widthMod)
+            {   
+                //SET CORD. RGB TO CHAR HEX according to String hex array.
+
+                //HEX SCROLL?
+            }
+        }
     }
     
     //Decoding protocol.
     public void decode()
     {
+        //Declare & instantiate string hex array to size getSize()
+        //Declare & instantiate int array to size getSize()
+        //Declare & instantiate char array to size getSize()
         
+        //Iterator through and populate ARGB int array.
+        
+        //ARGB int array convert to HEX array.
+        
+        //Hex array to char array.
+        //Char array to String.
+        //Cut null characters out of String end.
     }
+    
 /* Legacy Code
     //Encoding Protocol.
     public static BufferedImage code(BufferedImage img)
-	{
-	    Scanner keyboard = new Scanner(System.in);
-	    String input;
-        
-        System.out.print("Enter a message: ");
-		input = keyboard.nextLine();
-        
+	{   
         String[] hexArray = charToHex(input);
         int hexCounter = 0;
         
