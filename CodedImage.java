@@ -58,7 +58,19 @@ public class CodedImage extends BufferedImage
 	{
 		this.size = (this.getWidth() * this.getHeight()) / (heightMod * widthMod);
 	}
-
+    
+    public void setSecret(String secret)
+    {
+        this.secretMsg = secret;
+    }
+    
+    public static CodedImage encode(CodedImage)
+    {
+        
+    }
+    
+    
+/* Legacy Code
     //Encoding Protocol.
     public static BufferedImage code(BufferedImage img)
 	{
@@ -168,4 +180,5 @@ public class CodedImage extends BufferedImage
                              
         return(secretMsg);
 	}
+*/
 }
