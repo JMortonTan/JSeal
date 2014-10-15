@@ -29,7 +29,7 @@ public class JSeal
             
                 //Need to confirm user input is within bounds.
                 String holdString = keboard.nextLine();
-            } while(!check(holdString))
+            } while(!check(holdString));
             
             //Set secret.
             workImage.setSecret(keyboard.nextLine(), workImage.getSize());
@@ -60,14 +60,14 @@ public class JSeal
         else if(command.equals("help"))
         {
             //Display help message.
-            System.out.println("JSeal requires one of two possible arguments. ""Encode"" or ""Decode"".");
+            System.out.println("JSeal requires one of two possible arguments. \"Encode\" or \"Decode\".");
         }
         
         else
         {
             //Display error message.
             System.out.println("The command you entered does not exist." +
-                               "\nPlease enter the command ""JSeal help"" for a list of commands.");
+                               "\nPlease enter the command \"JSeal help\" for a list of commands.");
         }
     }
     
@@ -79,44 +79,4 @@ public class JSeal
         else
             return(false);
     }
-
-    
-/*  LEGACY CODE
-		try
-		{
-			Scanner keyboard = new Scanner(System.in);
-			String input;
-
-			System.out.print("Encode or Decode?: ");
-			input = keyboard.nextLine();
-            
-            if(input.equals("encode"))
-            {
-                System.out.print("Please enter the path to the image file you wish to use: ");
-                String fileName = keyboard.nextLine();
-                
-                BufferedImage img = ImageIO.read(new File(fileName));
-                Encode.save(Encode.code(img));
-                System.out.println("Encryption complete.");
-            }
-            
-            else if(input.equals("decode"))
-            {
-                System.out.print("Please enter the name of the file you want to decrypt: ");
-                String fileName = keyboard.nextLine();
-                
-                BufferedImage dimg = ImageIO.read(new File(fileName));
-                System.out.println(Decode.hexToString(Decode.decode(dimg)));
-            }
-            
-            else
-                System.out.println("Your input was invalid");
-		}
-        
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
-	}
-*/
 }

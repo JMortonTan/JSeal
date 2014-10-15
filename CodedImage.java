@@ -84,8 +84,8 @@ public class CodedImage extends BufferedImage
     public void encode()
     {
         char[] msgArray = secretMsg.toCharArray();     //Array of message Characters.
-        char[] encodeRdy = new char[getSize()];        //Create blank char array of size getSize(), populate it to null character.
-        String[] hexArray = new String[getSize()];
+        char[] encodeRdy = new char[this.getSize()];        //Create blank char array of size getSize(), populate it to null character.
+        String[] hexArray = new String[this.getSize()];
 
         //Copy chars from msgArray to new char array leaving leftover spaces as null characaters.
         for(int charCounter = 0; charCounter < msgArray.length; charCounter++)
@@ -97,9 +97,9 @@ public class CodedImage extends BufferedImage
         
         //4x ascii in one hex code?
         
-        for(int yScroll = 0; yScroll < img.getHeight(); yScroll += heightMod)
+        for(int yScroll = 0; yScroll < this.getHeight(); yScroll += heightMod)
         {
-			for(int xScroll = 0; xScroll < img.getWidth(); xScroll += widthMod)
+			for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
             {   
                 //SET CORD. RGB TO CHAR HEX according to String hex array.
 
@@ -112,26 +112,26 @@ public class CodedImage extends BufferedImage
     public void decode()
     {
         //Declare & instantiate int array to size getSize()
-        int[] rgbIntArray = new int[getSize()];
+        int[] rgbIntArray = new int[this.getSize()];
         //Declare & instantiate string hex array to size getSize()
-        String[] hexArray = new String[getSize()];
+        String[] hexArray = new String[this.getSize()];
         //Declare & instantiate char array to size getSize()
-        char[] charArray = new char[getSize()];
+        char[] charArray = new char[this.getSize()];
         
         int intCounter = 0;
         
         //Iterator through and populate ARGB int array.
         do
         {
-            for(int yScroll = 0; yScroll < img.getHeight(); yScroll += heightMod)
+            for(int yScroll = 0; yScroll < this.getHeight(); yScroll += heightMod)
             {
-                for(int xScroll = 0; xScroll < img.getWidth(); xScroll += widthMod)
+                for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
                 {   
-                    rgbIntArray[intCounter] = (img.getRGB(xScroll, yScroll));
+                    rgbIntArray[intCounter] = (this.getRGB(xScroll, yScroll));
                     intCounter++;
                 }
             }
-        }while(intCounter < getSize())
+        }while(intCounter < this.getSize());
         
         //ARGB int array convert to HEX array.
         
@@ -140,110 +140,4 @@ public class CodedImage extends BufferedImage
         //Char array to String.
         //Cut null characters out of String end.
     }
-    
-/* Legacy Code
-    //Encoding Protocol.
-    public static BufferedImage code(BufferedImage img)
-	{   
-        String[] hexArray = charToHex(input);
-        int hexCounter = 0;
-        
-        hexArray = colorKey(hexArray);
-        
-		for(int i = 0; i < img.getHeight(); i +=heightMod)
-        {
-			for(int j = 0; j < img.getWidth(); j +=widthMod)
-            {   
-                img.setRGB(j, i, hexStringToRGBInt(hexArray[hexCounter]));
-                    
-                if(hexCounter < (hexArray.length - 1))
-                    hexCounter++;
-            }
-        }
-        return(img);
-	}
-	
-	//Decoding Protocol  
-    public static String[] decode(BufferedImage img)
-	{
-        String[] hexArray = new String[calculateSize(img)];
-        int hexCounter = 0;
-        
-		for(int i = 0; i < img.getHeight(); i += heightMod)
-        {
-			for(int j = 0; j < img.getWidth(); j += widthMod)
-            {                
-				String hexColor = Integer.toHexString(img.getRGB(j, i));
-                hexArray[hexCounter] = hexColor;
-                                            
-                hexCounter++;
-            }
-        }
-                
-        return(hexArray);
-	}
-    
-    //This is the initial modifier for preparing the String[] of hexcodes.
-    public static String[] charToHex(String message)
-	{
-		String[] hexArray = new String[message.length()];
-
-		for(int i = 0; i < message.length(); i++)
-        {
-			hexArray[i] = "00" + String.format("%04x", ((int) message.charAt(i)));
-        }
-
-		return hexArray;
-	}
-    
-    //This is the final modifier for preparing the String[] of hexcodes.
-    public static String[] colorKey(String[] charHex)
-    {
-        String[] colorHex = new String[charHex.length];
-        
-        for(int counter = 0; counter < charHex.length; counter++)
-        {
-            colorHex[counter] = "ff" + charHex[counter];
-        }
-        
-        return(colorHex);
-    }
-    
-    //This method converts the hexadecimal code back into an RGB int.
-	public static int hexStringToRGBInt(String hex)
-    {        
-        Color hexColor = new Color(
-            Integer.valueOf(hex.substring( 2, 4 ), 16),
-            Integer.valueOf(hex.substring( 4, 6 ), 16),
-            Integer.valueOf(hex.substring( 6, 8 ), 16));
-        
-        int r = hexColor.getRed();
-        int g = hexColor.getGreen();
-        int b = hexColor.getBlue();
-        
-        return 0xFF000000 | r | g | b;
-    }
-    
-    //This method converts a String array holding all the hex values back into characters and finally a String.
-	public static String hexToString(String[] hexArray)
-	{
-        char[] secret = new char[hexArray.length];
-        String tempString;
-        String secretMsg = "";
-        
-        System.out.println(secret.length);
-                                     
-        for(int counter = 0; counter < hexArray.length; counter++)
-        {
-            tempString = hexArray[counter];
-            secret[counter] = (char)Integer.parseInt(tempString.substring(2,tempString.length()));
-            System.out.print(secret[counter]);
-        }
-        
-        for(int counter = 0; counter < secret.length; counter++)
-            secretMsg += Character.toString(secret[counter]);
-                             
-        return(secretMsg);
-	}
-*/
 }
