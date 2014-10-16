@@ -10,7 +10,7 @@ public class JSeal
 	public static void main(String[] args)
 	{
 	    String command = args[0];  //Stores command given from command argument.
-        CodedImage workImage;      //Declares CodedImage object.
+            CodedImage workImage;      //Declares CodedImage object.
         
         //Change command argument to lower case to ensure different capitalization combinationss are congruent.
         command = command.toLowerCase();
@@ -28,11 +28,11 @@ public class JSeal
                 System.out.println("What is your secret message? ");
             
                 //Need to confirm user input is within bounds.
-                String holdString = keboard.nextLine();
-            } while(!check(holdString))
+                String holdString = keyboard.nextLine();
+            } while(!check(holdString, workImage.getSize()));
             
             //Set secret.
-            workImage.setSecret(keyboard.nextLine(), workImage.getSize());
+            workImage.setSecret(holdString);
               
             //Encode.
             workImage.encode();
@@ -60,21 +60,21 @@ public class JSeal
         else if(command.equals("help"))
         {
             //Display help message.
-            System.out.println("JSeal requires one of two possible arguments. ""Encode"" or ""Decode"".");
+            System.out.println("JSeal requires one of two possible arguments. \"Encode\" or \"Decode\".");
         }
         
         else
         {
             //Display error message.
             System.out.println("The command you entered does not exist." +
-                               "\nPlease enter the command ""JSeal help"" for a list of commands.");
+                               "\nPlease enter the command \"JSeal help\" for a list of commands.");
         }
     }
     
     //Checks user input for size.
     public static boolean check(String input, int size)
     {
-        if(input.length <= size)
+        if(input.length() <= size)
             return(true);
         else
             return(false);
