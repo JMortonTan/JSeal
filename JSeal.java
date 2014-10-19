@@ -21,7 +21,8 @@ public class JSeal
             System.out.println("What is the name of the image you wish to use? ");
             workImage = new CodedImage(keyboard.nextLine(), false);
 
-
+			//Declare holdString
+			String holdString;
             
             do
             {
@@ -31,7 +32,7 @@ public class JSeal
             
                 //Need to confirm user input is within bounds.
 
-                String holdString = keyboard.nextLine();
+                holdString = keyboard.nextLine();
             } while(!check(holdString, workImage.getSize()));
 
             //Set secret.

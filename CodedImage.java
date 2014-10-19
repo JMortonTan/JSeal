@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class CodedImage extends BufferedImage
+public class CodedImage
 {
     private boolean coded;              //Flag to identify if CodedImage object is coded or not coded.
     private int heightMod = 6;          //Indicates jump distance on x axis.
@@ -13,24 +13,29 @@ public class CodedImage extends BufferedImage
     private int size;                   //Stores number amount of hidden material.
     private String filePath;	        //String containing user indicated file path.
     private String secretMsg;	        //String containing user indicated secret message.
+    
+    private BufferedImage currentImg;
 
     //Overloaded Constructor.
     public CodedImage(String pathName, boolean coded)
     {
+		this.setBufferedImage();
         this.setPath(pathName);
         this.setFlag(coded);
-        this.setBufferedImage();
         this.setSize();
     }
     
     //Open Image Method.
     public void setBufferedImage()
     {
-        this = ImageIO.read(new File(this.filePath));
+		try
+		{
+			this.currentImg = ImageIO.read(new File(this.filePath));
+		} catch (IOException e){}
     }
     
     //Save file function.
-    public static void save(String filePath)
+    public void save(String filePath)
     {
         try 
         {
@@ -42,7 +47,7 @@ public class CodedImage extends BufferedImage
     //Set boolean flag.
     public void setFlag(boolean indicater)
     {
-        this.coded = indicate;
+        this.coded = indicater;
     }
     
     //Sets user instructed path name.
@@ -52,9 +57,9 @@ public class CodedImage extends BufferedImage
     }
     
     //This method returns int size which is the total amount of characters that can be stored.
-    public static int setSize()
+    public void setSize()
     {
-	this.size = (this.getWidth() * this.getHeight()) / (this.heightMod * this.widthMod);
+		this.size = (currentImg.getWidth() * currentImg.getHeight()) / (this.heightMod * this.widthMod);
     }
     
     //Method to change secret instance variable.
@@ -72,7 +77,7 @@ public class CodedImage extends BufferedImage
     //Method to return size
     public int getSize()
     {
-	return(this.size);
+		return(this.size);
     }
     
     //Ascii to Hex
@@ -102,9 +107,9 @@ public class CodedImage extends BufferedImage
         
         //4x ascii in one hex code?
         
-        for(int yScroll = 0; yScroll < this.getHeight(); yScroll += heightMod)
+        for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
         {
-	    for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
+	    for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {   
                 //SET CORD. RGB TO CHAR HEX according to String hex array.
 
@@ -128,11 +133,11 @@ public class CodedImage extends BufferedImage
         //Iterator through and populate ARGB int array.
         do
         {
-            for(int yScroll = 0; yScroll < this.getHeight(); yScroll += heightMod)
+            for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
             {
-                for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
+                for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
                 {   
-                    rgbIntArray[intCounter] = (this.getRGB(xScroll, yScroll));
+                    rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
                     intCounter++;
                 }
             }
