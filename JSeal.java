@@ -20,6 +20,8 @@ public class JSeal
             //Ask user for file path of image.
             System.out.println("What is the name of the image you wish to use? ");
             workImage = new CodedImage(keyboard.nextLine(), false);
+
+
             
             do
             {
@@ -28,14 +30,10 @@ public class JSeal
                 System.out.println("What is your secret message? ");
             
                 //Need to confirm user input is within bounds.
-<<<<<<< HEAD
+
                 String holdString = keyboard.nextLine();
             } while(!check(holdString, workImage.getSize()));
-=======
-                String holdString = keboard.nextLine();
-            } while(!check(holdString));
->>>>>>> 06cf6947e0a1356fcc71b6584b296a9d55a9202a
-            
+
             //Set secret.
             workImage.setSecret(holdString);
               

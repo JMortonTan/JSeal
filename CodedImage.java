@@ -26,7 +26,7 @@ public class CodedImage extends BufferedImage
     //Open Image Method.
     public void setBufferedImage()
     {
-        super(ImageIO.read(new File(this.filePath)));
+        this = ImageIO.read(new File(this.filePath));
     }
     
     //Save file function.
@@ -104,11 +104,7 @@ public class CodedImage extends BufferedImage
         
         for(int yScroll = 0; yScroll < this.getHeight(); yScroll += heightMod)
         {
-<<<<<<< HEAD
 	    for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
-=======
-			for(int xScroll = 0; xScroll < this.getWidth(); xScroll += widthMod)
->>>>>>> 06cf6947e0a1356fcc71b6584b296a9d55a9202a
             {   
                 //SET CORD. RGB TO CHAR HEX according to String hex array.
 
@@ -140,11 +136,7 @@ public class CodedImage extends BufferedImage
                     intCounter++;
                 }
             }
-<<<<<<< HEAD
-        }while(intCounter < getSize());
-=======
         }while(intCounter < this.getSize());
->>>>>>> 06cf6947e0a1356fcc71b6584b296a9d55a9202a
         
         //ARGB int array convert to HEX array.
         
