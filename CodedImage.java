@@ -19,8 +19,8 @@ public class CodedImage
     //Overloaded Constructor.
     public CodedImage(String pathName, boolean coded)
     {
-		this.setBufferedImage();
         this.setPath(pathName);
+        this.setBufferedImage();
         this.setFlag(coded);
         this.setSize();
     }
@@ -138,13 +138,15 @@ public class CodedImage
         
         int colorCounter = 0;
                 
-        for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
+        for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += this.heightMod)
         {
-			for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
+			for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += this.widthMod)
             {   
-				if(colorCounter < colorArray.length)
+				if(colorCounter < colorArray.length - 1)
 				{
 					Color tempColor = colorArray[colorCounter];
+					
+					//NULLPOINTER EXCEPTION THROWING HERE.
 					
 					int r = tempColor.getRed();
 					int g = tempColor.getGreen();
@@ -167,13 +169,15 @@ public class CodedImage
         
         //Iterator through and populate ARGB int array. 
         for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
+        {
+            for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {
-                for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
-                {   
-                    rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
-                    intCounter++;
-                }
+				//ARRAY INDEX OUT OF BOUNDS EXCEPTION HERE.
+				
+                rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
+                intCounter++;
             }
+        }
             
         this.secretMsg = argbintArrayToString(rgbIntArray);
     }

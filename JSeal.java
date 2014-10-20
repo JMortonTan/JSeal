@@ -27,7 +27,7 @@ public class JSeal
             do
             {
                 //Ask user for secret message.
-                System.out.println("Your secret message can only have" + workImage.getSize() + " characters.");
+                System.out.println("Your secret message can only have " + workImage.getSize() + " characters.");
                 System.out.println("What is your secret message? ");
             
                 //Need to confirm user input is within bounds.
