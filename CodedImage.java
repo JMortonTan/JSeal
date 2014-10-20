@@ -80,40 +80,79 @@ public class CodedImage
 		return(this.size);
     }
     
-    //Ascii to Hex
-    public String asciiToHex(char ascii)
+    //String to Color array
+    public Color[] secretToColorArray()
     {
-        String hex;
-        
-        //Ascii to hex
-        
-        return(hex);
+		//Stores secret as an array of characters.
+		char[] charArray = getSecret().toCharArray();
+		
+		//Stores secret as an array of hex Strings.
+		String[] hexArray = new String[charArray.length];
+		
+		//Stores secret as an array of Color.
+		Color[] colorArray = new Color[getSize()];
+		
+		//Populate Hex Array.
+		for(int counter = 0; counter < charArray.length; counter++)
+		{
+			hexArray[counter] = "00" + Integer.toHexString((int)charArray[counter]);
+		}
+		
+		//Populate Int Array.
+		for(int counter2 = 0; counter2 < charArray.length; counter2++)
+		{
+			colorArray[counter2] = new Color((int)Long.parseLong(hexArray[counter2], 16));
+		}
+				   
+        return(colorArray);
     }
+    
+    public String argbintArrayToString(int[] argb)
+    {
+		char[] charArray = new char[argb.length];
+		
+		for(int counter = 0; counter < argb.length; counter++)
+		{
+			Color tempColor = new Color(argb[counter]);
+			
+			int r = tempColor.getRed();
+			int g = tempColor.getGreen();
+			int b = tempColor.getBlue();
+			
+			String hex = String.format("#%02x%02x%02x", r, g, b);
+			
+			int hexTransition = Integer.parseInt(hex,16);
+			
+			charArray[counter] = (char)hexTransition;
+		}
+		
+		String message = new String(charArray);
+		
+		return(message);
+	}
     
     //Encoding protocol.
     public void encode()
     {
-        char[] msgArray = secretMsg.toCharArray();     //Array of message Characters.
-        char[] encodeRdy = new char[this.getSize()];        //Create blank char array of size getSize(), populate it to null character.
-        String[] hexArray = new String[this.getSize()];
-
-        //Copy chars from msgArray to new char array leaving leftover spaces as null characaters.
-        for(int charCounter = 0; charCounter < msgArray.length; charCounter++)
-            encodeRdy[charCounter] = msgArray[charCounter];
+        Color[] colorArray = secretToColorArray();
         
-        //New encodeRdy char array to String hex array #AARRGGBB?/#RRGGBB?
-        for(int rdyCounter = 0; rdyCounter < hexArray.length; rdyCounter++)
-            hexArray[rdyCounter] = asciiToHex(encodeRdy[rdyCounter]);
-        
-        //4x ascii in one hex code?
-        
+        int colorCounter = 0;
+                
         for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
         {
-	    for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
+			for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {   
-                //SET CORD. RGB TO CHAR HEX according to String hex array.
-
-                //HEX SCROLL?
+				if(colorCounter < colorArray.length)
+				{
+					Color tempColor = colorArray[colorCounter];
+					
+					int r = tempColor.getRed();
+					int g = tempColor.getGreen();
+					int b = tempColor.getBlue();
+					
+					currentImg.setRGB(r, g, b);
+					colorCounter++;
+				}
             }
         }
     }
@@ -123,17 +162,11 @@ public class CodedImage
     {
         //Declare & instantiate int array to size getSize()
         int[] rgbIntArray = new int[this.getSize()];
-        //Declare & instantiate string hex array to size getSize()
-        String[] hexArray = new String[this.getSize()];
-        //Declare & instantiate char array to size getSize()
-        char[] charArray = new char[this.getSize()];
         
         int intCounter = 0;
         
-        //Iterator through and populate ARGB int array.
-        do
-        {
-            for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
+        //Iterator through and populate ARGB int array. 
+        for(int yScroll = 0; yScroll < currentImg.getHeight(); yScroll += heightMod)
             {
                 for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
                 {   
@@ -141,13 +174,7 @@ public class CodedImage
                     intCounter++;
                 }
             }
-        }while(intCounter < this.getSize());
-        
-        //ARGB int array convert to HEX array.
-        
-        
-        //Hex array to char array.
-        //Char array to String.
-        //Cut null characters out of String end.
+            
+        this.secretMsg = argbintArrayToString(rgbIntArray);
     }
 }
