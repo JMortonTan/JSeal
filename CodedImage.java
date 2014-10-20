@@ -173,9 +173,11 @@ public class CodedImage
             for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {
 				//ARRAY INDEX OUT OF BOUNDS EXCEPTION HERE.
-				
-                rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
-                intCounter++;
+				do
+				{
+					rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
+					intCounter++;
+				}while(intCounter < rgbIntArray.length);
             }
         }
             
