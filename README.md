@@ -13,6 +13,7 @@ We are in process of rewriting the entire code.
 
 ###To Do List
 - Create UML diagram of program.
+- Fix thrown errors.
 - Finish CodedImage methods.
 - JFrame GUI?
 - Android GUI?
