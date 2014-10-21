@@ -121,6 +121,7 @@ public class CodedImage
 			
 			String hex = String.format("#%02x%02x%02x", r, g, b);
 			
+			//NUMBER FORMAT EXCEPTION BEING THROWN HERE
 			int hexTransition = Integer.parseInt(hex,16);
 			
 			charArray[counter] = (char)hexTransition;
@@ -146,14 +147,17 @@ public class CodedImage
 				{
 					Color tempColor = colorArray[colorCounter];
 					
-					//NULLPOINTER EXCEPTION THROWING HERE.
+					if(tempColor != null)
+					{
+						int r = tempColor.getRed();
+						int g = tempColor.getGreen();
+						int b = tempColor.getBlue();
 					
-					int r = tempColor.getRed();
-					int g = tempColor.getGreen();
-					int b = tempColor.getBlue();
+						currentImg.setRGB(r, g, b);
+						colorCounter++;
+					}
 					
-					currentImg.setRGB(r, g, b);
-					colorCounter++;
+					//COLOR IS NOT SETTING?  PROBLEM WITH HEX CODE?
 				}
             }
         }
@@ -173,11 +177,11 @@ public class CodedImage
             for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {
 				//ARRAY INDEX OUT OF BOUNDS EXCEPTION HERE.
-				do
+				if(intCounter < rgbIntArray.length)
 				{
 					rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
 					intCounter++;
-				}while(intCounter < rgbIntArray.length);
+				}
             }
         }
             
