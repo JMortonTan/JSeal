@@ -11,7 +11,7 @@ I am in the process of rewriting the entire code.
 
 **The code compiles and runs without error!**
 **Algorithm is not working for decode, unknown reason.**
-**Encoding is producing artifacts around adjusted pixel...**:scream:
+**Encoding is producing artifacts around adjusted pixel...** :scream:
 **Last update: 10/21/14**
 
 ###To Do List
