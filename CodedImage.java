@@ -104,20 +104,6 @@ public class CodedImage
 			colorArray[counter2] = new Color((int)Long.parseLong(hexArray[counter2], 16));
 		}
         
-        //TEST CODE
-        System.out.println(charArray);      //--> PASS: Char array correctly displays user input.
-        for(String n: hexArray)
-        {
-            System.out.println(n);
-        }                                   //--> PASS: HEX ARRAY STRING DISPLAYS HEX STRINGS OF USER INPUT.
-        
-        for(Color y: colorArray)
-        {
-            if(y != null)
-                System.out.println(y);          //--> PASS: COLOR ARRAY IS STORING COLORS OF PROPER INT VALUES.
-        }   
-        //TEST CODE
-        
         return(colorArray);
     }
     
@@ -136,13 +122,15 @@ public class CodedImage
 			
 			String hex = String.format("%02x%02x%02x", r, g, b);
 			
-			//NUMBER FORMAT EXCEPTION BEING THROWN HERE there is an 'ff040308' instead of '040308'
 			int hexTransition = Integer.parseInt(hex,16);
 			
 			charArray[counter] = (char)hexTransition;
 		}
 		
 		String message = new String(charArray);
+        
+        //Remove trailing whitespace.
+        message = message.trim();
 		
 		return(message);
 	}
@@ -167,11 +155,6 @@ public class CodedImage
 						int r = tempColor.getRed();
 						int g = tempColor.getGreen();
 						int b = tempColor.getBlue();
-                        
-                        //TEST CODE
-                        System.out.println(tempColor.getRGB());
-                        System.out.println(tempColor.getBlue());
-                        //TEST CODE
 					
 						currentImg.setRGB(xScroll, yScroll, tempColor.getRGB());
 						colorCounter++;
