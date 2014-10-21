@@ -9,7 +9,9 @@ As of 10/14/2014, the source code contained in the folder 'Old' of this reposito
 
 I am in the process of rewriting the entire code.
 
-**The code compiles!  But running decode and encode commands throws errors.  This should be resolved very soon.**
+**The code compiles!  But running decode command throws errors.**
+**Also encoding doesn't seem to be working, although program successfully completes.**
+**Last update: 10/20/14**
 
 ###To Do List
 - Create UML diagram of program.
