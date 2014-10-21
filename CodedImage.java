@@ -98,12 +98,26 @@ public class CodedImage
 			hexArray[counter] = "00" + Integer.toHexString((int)charArray[counter]);
 		}
 		
-		//Populate Int Array.
+		//Populate Color Array.
 		for(int counter2 = 0; counter2 < charArray.length; counter2++)
 		{
 			colorArray[counter2] = new Color((int)Long.parseLong(hexArray[counter2], 16));
 		}
-				   
+        
+        //TEST CODE
+        System.out.println(charArray);      //--> PASS: Char array correctly displays user input.
+        for(String n: hexArray)
+        {
+            System.out.println(n);
+        }                                   //--> PASS: HEX ARRAY STRING DISPLAYS HEX STRINGS OF USER INPUT.
+        
+        for(Color y: colorArray)
+        {
+            if(y != null)
+                System.out.println(y);          //--> PASS: COLOR ARRAY IS STORING COLORS OF PROPER INT VALUES.
+        }   
+        //TEST CODE
+        
         return(colorArray);
     }
     
@@ -115,13 +129,14 @@ public class CodedImage
 		{
 			Color tempColor = new Color(argb[counter]);
 			
+            int a = tempColor.getAlpha();
 			int r = tempColor.getRed();
 			int g = tempColor.getGreen();
 			int b = tempColor.getBlue();
 			
-			String hex = String.format("#%02x%02x%02x", r, g, b);
+			String hex = String.format("%02x%02x%02x", r, g, b);
 			
-			//NUMBER FORMAT EXCEPTION BEING THROWN HERE
+			//NUMBER FORMAT EXCEPTION BEING THROWN HERE there is an 'ff040308' instead of '040308'
 			int hexTransition = Integer.parseInt(hex,16);
 			
 			charArray[counter] = (char)hexTransition;
@@ -152,12 +167,15 @@ public class CodedImage
 						int r = tempColor.getRed();
 						int g = tempColor.getGreen();
 						int b = tempColor.getBlue();
+                        
+                        //TEST CODE
+                        System.out.println(tempColor.getRGB());
+                        System.out.println(tempColor.getBlue());
+                        //TEST CODE
 					
-						currentImg.setRGB(r, g, b);
+						currentImg.setRGB(xScroll, yScroll, tempColor.getRGB());
 						colorCounter++;
 					}
-					
-					//COLOR IS NOT SETTING?  PROBLEM WITH HEX CODE?
 				}
             }
         }
