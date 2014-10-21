@@ -9,13 +9,13 @@ As of 10/14/2014, the source code contained in the folder 'Old' of this reposito
 
 I am in the process of rewriting the entire code.
 
-**The code compiles!  But running decode command throws errors.**
-**Also encoding doesn't seem to be working, although program successfully completes.**
-**Last update: 10/20/14**
+**The code compiles and runs without error!**
+**Algorithm is not working for decode, unknown reason.**
+**Encoding is producing artifacts around adjusted pixel...**:scream:
+**Last update: 10/21/14**
 
 ###To Do List
 - Create UML diagram of program.
-- Fix thrown errors.
 - Finish CodedImage methods.
 - JFrame GUI?
 - Android GUI?
