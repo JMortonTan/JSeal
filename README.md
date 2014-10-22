@@ -13,10 +13,14 @@ Supported Filetypes
 | Portable Network Graphics  | .png          |
 
 **Test with Bitmap files (.bmp) resulted in no artifacts. And decoded successfully**
+
 **Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
+
 **Last update: 10/22/14**
 
 ###Instructions
+
+**As of now, please code and decode files into the same directory as the compiled code.  Changing directories is currently untested.**
 
 Please clone this git by using the command:
 
