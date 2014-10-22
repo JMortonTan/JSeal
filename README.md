@@ -3,19 +3,44 @@ JSeal
 
 ###About
 
-JSeal is a Steganography application that allows a user to encode data into an existing .JPEG file.
+JSeal is a Steganography application that allows a user to encode data into an existing image file.
 
-As of 10/14/2014, the source code contained in the folder 'Old' of this repository is the only running demo that has major bugs in its decoding methods.
+Supported Filetypes
 
-I am in the process of rewriting the entire code.
+| Filetype                   | Extension     | 
+| -------------------------- | ------------- |
+| Bitmap                     | .bmp          |
+| Portable Network Graphics  | .png          |
 
-**The code compiles and runs without error!**
-**Algorithm is not working for decode, unknown reason.**
-**Encoding is producing artifacts around adjusted pixel...** :scream:
-**Last update: 10/21/14**
+**Test with Bitmap files (.bmp) resulted in no artifacts. And decoded successfully**
+**Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
+**Last update: 10/22/14**
+
+###Instructions
+
+Please clone this git by using the command:
+    git clone http://github.com/JMortonTan/JSeal
+
+After, please compile the code by using the command:
+    javac JSeal.java
+    
+After you have compiled the code, you have three commands to choose from.
+
+Encode:
+    java JSeal encode
+    
+Decode:
+    java JSeal decode
+
+Help:
+    java JSeal help
+    
+
+Enjoy!
 
 ###To Do List
 - Create UML diagram of program.
+- Gif of terminal useage?
 - Finish CodedImage methods.
 - JFrame GUI?
 - Android GUI?

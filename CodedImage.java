@@ -40,7 +40,7 @@ public class CodedImage
         try 
         {
             File outFile = new File(filePath);
-            ImageIO.write(this.currentImg, "jpg", outFile);
+            ImageIO.write(this.currentImg, "bmp", outFile);
         } catch (IOException e){}
     }
     
@@ -59,13 +59,13 @@ public class CodedImage
     //This method returns int size which is the total amount of characters that can be stored.
     public void setSize()
     {
-		this.size = (currentImg.getWidth() * currentImg.getHeight()) / (this.heightMod * this.widthMod);
+		this.size = (currentImg.getWidth() * currentImg.getHeight()) / (this.heightMod * this.widthMod) - 4;
     }
     
     //Method to change secret instance variable.
     public void setSecret(String secret)
     {
-        this.secretMsg = secret;
+        this.secretMsg = secret + "****";
     }
     
     //Method to return secret instance variable.
@@ -128,12 +128,19 @@ public class CodedImage
 		}
 		
 		String message = new String(charArray);
-        
-        //Remove trailing whitespace.
-        message = message.trim();
 		
+        message = secretTrim(message);
+        
 		return(message);
 	}
+    
+    //Cut message at **** end
+    public String secretTrim(String uncut)
+    {
+        String cut = uncut.substring(0, uncut.indexOf("****"));
+        
+        return(cut);
+    }
     
     //Encoding protocol.
     public void encode()
@@ -177,7 +184,6 @@ public class CodedImage
         {
             for(int xScroll = 0; xScroll < currentImg.getWidth(); xScroll += widthMod)
             {
-				//ARRAY INDEX OUT OF BOUNDS EXCEPTION HERE.
 				if(intCounter < rgbIntArray.length)
 				{
 					rgbIntArray[intCounter] = (currentImg.getRGB(xScroll, yScroll));
