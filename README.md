@@ -19,20 +19,25 @@ Supported Filetypes
 ###Instructions
 
 Please clone this git by using the command:
+
     git clone http://github.com/JMortonTan/JSeal
 
 After, please compile the code by using the command:
+
     javac JSeal.java
     
 After you have compiled the code, you have three commands to choose from.
 
 Encode:
+
     java JSeal encode
     
 Decode:
+
     java JSeal decode
 
 Help:
+
     java JSeal help
     
 
