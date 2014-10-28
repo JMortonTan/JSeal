@@ -48,6 +48,7 @@ Help:
 Enjoy!
 
 ###To Do List
+- Improve blending/hiding. (Complete PixelCoordinate)
 - Create UML diagram of program.
 - Gif of terminal useage?
 - Finish CodedImage methods.
