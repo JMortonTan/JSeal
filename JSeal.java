@@ -58,7 +58,7 @@ public class JSeal
             System.out.println("Decoding complete.");
             
             //Display secret message.
-            System.out.println("Your encoded message was: " + workImage.getSecret());
+            System.out.println("Your encoded message was: \n" + workImage.getSecret());
         }
         
         else if(command.equals("help"))
