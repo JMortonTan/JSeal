@@ -16,7 +16,7 @@ Supported Filetypes
 
 **Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
 
-**Last update: 10/22/14**
+**Last update: 11/06/14**
 
 ###Instructions
 
@@ -52,7 +52,7 @@ Enjoy!
 - Create UML diagram of program.
 - Gif of terminal useage?
 - Finish CodedImage methods.
-- JFrame GUI?
+- JFrame GUI -- Soon.
 - Android GUI?
 - Open source licensing.
 
