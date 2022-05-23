@@ -1,12 +1,7 @@
 JSeal
 ====================
 
-###Note
-
-Everything is a mess!  Project will restart!
-Current codebase is garbage.  Compile and run as a proof of concept only please!
-
-###About
+### About
 
 JSeal is a Steganography application that allows a user to encode data into an existing image file.
 
@@ -20,9 +15,7 @@ Supported Filetypes
 
 **Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
 
-**Last update: 10/30/16**
-
-###To Do List
+### To Do List
 - Improve blending/hiding. (Complete PixelCoordinate)
 - Create UML diagram of program.
 - Gif of terminal useage?
@@ -31,7 +24,7 @@ Supported Filetypes
 - Android GUI?
 - Open source licensing.
 
-###Credits
+### Credits
 
 This project was begun by:
 - [Pu Chen](https://github.com/PuChen7)
