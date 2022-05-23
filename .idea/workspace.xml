@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Args.java" afterDir="false" />
+    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="handle arguments via JCommander">
+      <change afterPath="$PROJECT_DIR$/src/Steganograph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WorkingFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSeal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JSeal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CodedImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImagePreviewPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JSeal.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JSeal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JSeal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JSealDesktop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Password.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,6 +414,21 @@
       <option name="presentableId" value="Default" />
       <updated>1456249058797</updated>
     </task>
+    <task id="LOCAL-00001" summary="handle arguments via JCommander">
+      <created>1653324776875</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653324776875</updated>
+    </task>
+    <task id="LOCAL-00002" summary="handle arguments via JCommander">
+      <created>1653324790067</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653324790067</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -458,6 +479,10 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="handle arguments via JCommander" />
+    <option name="LAST_COMMIT_MESSAGE" value="handle arguments via JCommander" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
