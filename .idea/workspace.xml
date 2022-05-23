@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="handle arguments via JCommander">
-      <change afterPath="$PROJECT_DIR$/src/Steganograph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WorkingFile.java" afterDir="false" />
+    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="Reorganize Java Classes, remove unused features">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CodedImage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImagePreviewPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JSeal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JSeal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JSeal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JSealDesktop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Password.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -428,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653324790067</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Reorganize Java Classes, remove unused features">
+      <created>1653338275745</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653338275745</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -482,7 +481,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="handle arguments via JCommander" />
-    <option name="LAST_COMMIT_MESSAGE" value="handle arguments via JCommander" />
+    <MESSAGE value="Reorganize Java Classes, remove unused features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganize Java Classes, remove unused features" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

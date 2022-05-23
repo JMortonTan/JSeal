@@ -12,17 +12,11 @@ Supported Filetypes
 | Bitmap                     | .bmp          |
 
 **Test with Bitmap files (.bmp) resulted in no artifacts. And decoded successfully**
-
 **Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
 
 ### To Do List
-- Improve blending/hiding. (Complete PixelCoordinate)
-- Create UML diagram of program.
-- Gif of terminal useage?
-- Finish CodedImage methods.
-- JFrame GUI -- Soon.
-- Android GUI?
-- Open source licensing.
+- Reorganize Class methods to better utilize Object Oriented Programming
+- Implement "Block" colour averaging to better hide alterations to the naked eye.
 
 ### Credits
 
