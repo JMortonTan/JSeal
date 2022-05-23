@@ -1,24 +1,28 @@
+import com.beust.jcommander.JCommander;
+import com.sun.tools.javac.util.Assert;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Scanner;
+
 
 public class JSeal {
     //Create a scanner for user input.
     private static Scanner keyboard = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int input;
-        System.out.println("Enter 1 for encode, 2 for decode: ");
-        input = keyboard.nextInt();
-        keyboard.nextLine();
+        Args myArgs = new Args();
+        JCommander.newBuilder()
+                .addObject(myArgs)
+                .build()
+                .parse(args);
 
-        switch(input) {
-            case 1:
-                encodeFile();
-                break;
-            case 2:
-                decodeFile();
-                break;
+        if (myArgs.getEncode() == true && myArgs.getDecode() == true) {
+            System.out.println("You must select either one encode or decode at a time.");
+            System.exit(0);
+        } else if (myArgs.getEncode() == true) {
+            encodeFile();
+        } else if (myArgs.getDecode() == true) {
+            decodeFile();
         }
     }
 
