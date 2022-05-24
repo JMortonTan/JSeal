@@ -88,7 +88,10 @@ public class Steganograph {
             for (int yBlock = 0; yBlock < blockHeight; yBlock++) {
 
                 Block currentBlock = new Block((xBlock * 3) + 1, (yBlock * 3) + 1);
-                int totalRGB = 0;
+                int totalRed = 0;
+                int totalGreen = 0;
+                int totalBlue = 0;
+
                 for(int i = 0; i < 9; i++) {
 
                     if (i == 4) {
@@ -100,18 +103,30 @@ public class Steganograph {
                         int y = temp.getY();
 
                         int currentRGB = currentImg.getRGB(x, y);
-                        totalRGB += currentRGB;
-                        System.out.println("xBlock: " + xBlock + "yBLock: " + yBlock + "ith: " + i);
-                        System.out.println("currentRGB: " + currentRGB);
+                        Color currentColor = new Color(currentRGB);
+                        int currentRed = currentColor.getRed();
+                        int currentGreen = currentColor.getGreen();
+                        int currentBlue = currentColor.getBlue();
+
+                        totalRed += currentRed;
+                        totalGreen += currentGreen;
+                        totalBlue += currentBlue;
+
+//                        System.out.println("xBlock: " + xBlock + "yBLock: " + yBlock + "ith: " + i);
+//                        System.out.println("currentRGB: " + currentRGB);
                     }
                 }
+//                System.out.println("totalRGB: " + totalRGB);
+//                System.out.println("avgRGB: " + totalRGB / 8);
 
-                System.out.println("totalRGB: " + totalRGB);
-                System.out.println("avgRGB: " + totalRGB / 8);
+                int avgRed = totalRed / 8;
+                int avgGreen = totalGreen / 8;
+                int avgBlue = totalBlue / 8;
+                Color avgColor = new Color(avgRed, avgGreen, avgBlue);
 
                 currentImg.setRGB(currentBlock.getMain().getX(),
                         currentBlock.getMain().getY(),
-                        totalRGB / 8);
+                        avgColor.getRGB());
             }
         }
     }

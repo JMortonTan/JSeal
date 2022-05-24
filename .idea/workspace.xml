@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="Update todo list.">
+    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="Implemented block &quot;colour&quot; averaging.  Results not great.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Clipart/codedtest.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Clipart/happy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JSeal/Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JSeal/Coordinate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/Decoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/Encoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/ImagePreviewPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JSeal/JSeal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/JSealDesktop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JSeal/Password.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Decoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JSeal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JSeal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Steganograph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Steganograph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkingFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkingFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -451,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653338376629</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented block &quot;colour&quot; averaging.  Results not great.">
+      <created>1653356844635</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653356844635</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -507,7 +497,8 @@
     <MESSAGE value="handle arguments via JCommander" />
     <MESSAGE value="Reorganize Java Classes, remove unused features" />
     <MESSAGE value="Update todo list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update todo list." />
+    <MESSAGE value="Implemented block &quot;colour&quot; averaging.  Results not great." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented block &quot;colour&quot; averaging.  Results not great." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
