@@ -111,13 +111,8 @@ public class Steganograph {
                         totalRed += currentRed;
                         totalGreen += currentGreen;
                         totalBlue += currentBlue;
-
-//                        System.out.println("xBlock: " + xBlock + "yBLock: " + yBlock + "ith: " + i);
-//                        System.out.println("currentRGB: " + currentRGB);
                     }
                 }
-//                System.out.println("totalRGB: " + totalRGB);
-//                System.out.println("avgRGB: " + totalRGB / 8);
 
                 int avgRed = totalRed / 8;
                 int avgGreen = totalGreen / 8;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="Implemented block &quot;colour&quot; averaging.  Results not great.">
+    <list default="true" id="0cdf52ce-47a9-4357-a218-254f5e413b3b" name="Default" comment="New colour avg algorithm.  Avg R, G, and B values individually to min integer division loss.  Much more success.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Steganograph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Steganograph.java" afterDir="false" />
     </list>
@@ -441,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653356844635</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New colour avg algorithm.  Avg R, G, and B values individually to min integer division loss.  Much more success.">
+      <created>1653357933085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653357933085</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -498,7 +505,8 @@
     <MESSAGE value="Reorganize Java Classes, remove unused features" />
     <MESSAGE value="Update todo list." />
     <MESSAGE value="Implemented block &quot;colour&quot; averaging.  Results not great." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented block &quot;colour&quot; averaging.  Results not great." />
+    <MESSAGE value="New colour avg algorithm.  Avg R, G, and B values individually to min integer division loss.  Much more success." />
+    <option name="LAST_COMMIT_MESSAGE" value="New colour avg algorithm.  Avg R, G, and B values individually to min integer division loss.  Much more success." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
