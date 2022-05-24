@@ -15,6 +15,11 @@ Supported Filetypes
 **Test with PNG files (.png) resulted in no artifacts. And decoded successfully**
 
 ### To Do List
+- Implement File2Hex method in WorkingFile class
+- Replace pixels in file based on blocks.
+- Implement decode regimen, (How to indicate the end of a file has been retrieved?)
+
+
 - Reorganize Class methods to better utilize Object Oriented Programming
 - Implement "Block" colour averaging to better hide alterations to the naked eye.
 

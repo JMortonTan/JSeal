@@ -40,7 +40,7 @@ public class JSeal {
         path = keyboard.nextLine();
 
         //Encode.
-        workImage.encodeFile(new File(path));
+        workImage.encodeFile(new WorkingFile(path));
         System.out.println("Encoding complete.");
 
         //Save.
@@ -50,21 +50,21 @@ public class JSeal {
     }
 
     public static void decodeFile() {
-        CodedImage workImage;      //Declares CodedImage object.
-        String savePath;
-
-        System.out.println("What is the path of your image?");
-        String path = keyboard.nextLine();
-
-        workImage = new CodedImage(path, false);
-
-        System.out.println("Give a name to decoded file:");
-        savePath = keyboard.nextLine();
-
-        //Create decoded file
-        File decoded = new File(savePath);
-
-        workImage.decodeFile(new File(path), decoded);
+//        CodedImage workImage;      //Declares CodedImage object.
+//        String savePath;
+//
+//        System.out.println("What is the path of your image?");
+//        String path = keyboard.nextLine();
+//
+//        workImage = new CodedImage(path, false);
+//
+//        System.out.println("Give a name to decoded file:");
+//        savePath = keyboard.nextLine();
+//
+//        //Create decoded file
+//        File decoded = new File(savePath);
+//
+//        workImage.decodeFile(new File(path), decoded);
 
         //savePath = path.substring(0, path.lastIndexOf('/') + 1) + "" + savePath;
         //workImage.save(savePath);

@@ -1,4 +1,3 @@
-
 public class Coordinate {
     private int x,
                 y;
@@ -23,6 +22,4 @@ public class Coordinate {
     private void setY(int y) {
         this.y = y;
     }
-
-
 }

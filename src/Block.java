@@ -1,7 +1,5 @@
 public class Block {
     private Coordinate main;
-
-    //TEMPORARY PUBLIC
     private Coordinate[] surroundingCords = new Coordinate[9];
 
     //Overloaded Constructor
